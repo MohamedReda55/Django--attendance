@@ -32,7 +32,7 @@ function start() {
 //     $.getJSON('/accounts/server/start',function(rowz){
             getter=httpGet('/accounts/server/start');
             qrcode_generate=httpGet('/accounts/qrcode/generate');
-            alert("Qrcode is generated");
+           
             // document.getElementById('start').style.visibility = 'hidden';
         
             // document.getElementById('stop').style.visibility = 'visible';
@@ -59,7 +59,7 @@ function start() {
         
             start.innerHTML='<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>';
             localStorage.setItem("btn_state",'<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>');
-            
+             alert("Qrcode is generated");
 // });
    
 
