@@ -60,6 +60,6 @@ $(document).ready(function(){
       
     });
     document.querySelector("#chartReport").innerHTML = '<canvas id="myChart"></canvas>';
-  }, 1000);
+  }, 3000);
 
 });

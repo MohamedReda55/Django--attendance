@@ -30,9 +30,9 @@ function start() {
 //   $.ajaxSetup({ cache: false });
   
 //     $.getJSON('/accounts/server/start',function(rowz){
-            getter=httpGet('/accounts/server/start')
-            qrcode_generate=httpGet('/accounts/qrcode/generate')
-            console.log(getter)       
+            getter=httpGet('/accounts/server/start');
+            qrcode_generate=httpGet('/accounts/qrcode/generate');
+           
             // document.getElementById('start').style.visibility = 'hidden';
         
             // document.getElementById('stop').style.visibility = 'visible';
@@ -57,9 +57,9 @@ function start() {
             let start= document.getElementById('start_div');
             start.innerHTML=''
         
-            start.innerHTML='<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>'
-            localStorage.setItem("btn_state",'<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>')
-            
+            start.innerHTML='<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>';
+            localStorage.setItem("btn_state",'<button type="button" class="btn btn-danger" id="stop" onclick="stop();">Stop</button>');
+             alert("Qrcode is generated");
 // });
    
 
@@ -82,9 +82,9 @@ function stop() {
             let start= document.getElementById('start_div');
             start.innerHTML=''
         
-            start.innerHTML='  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>'
-            localStorage.setItem("btn_state",'  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>')
-            localStorage.setItem("download_btn","visible")
+            start.innerHTML='  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>';
+            localStorage.setItem("btn_state",'  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>');
+            localStorage.setItem("download_btn","visible");
 });
    
 
