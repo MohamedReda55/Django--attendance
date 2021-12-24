@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ================================================================================================== -->
+    <!------------------------ bootstrap ----------------------------- -->
+    <link rel="stylesheet" href="{%static 'table/table_css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'table/table_css/min.css' %}">
+    
+    <title>Live Table</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <span class="navbar-brand"><h4>Student Attendance</h4></span> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link"  href="{%url 'accounts:home' %}"><h5>Home</h5></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="{%url 'accounts:tables' %}"><h5>Live Table</h5></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "  href="{%url 'accounts:qrcode_page' %}"><h5>QR_Code</h5></a>
+        </li>
+      </ul>
+      <div class="name" style="float: right;">
+        <span class="sp"><h4 >{{ request.user.username }}</h4></span>
+      </div>
+      <a href="{%url 'accounts:logout'%}">
+      <input class="btn btn-primary"  type="submit" value="Logout" >
+      </a>
+    </div>
+  </nav>
+<center>
+  <h4 id="sub"></h4></div>
+  <h4>Time : 00:00</h4></div>
+ </center> 
+    <!-- ================================================================================================== -->
+    <div>    
+      <table id="_appendHere" class="styled-table" >
+        
+        <tr>
+          <!-- ----------------------دى الي احنا قولنا عنثبته ونخليه الهيد تمام كده ------------------- -->
+          <th>id</th>
+          
+          <th>name</th>
+      </tr>
+      <!-- ---------------------------------دي بقى الفاضة الي عتحط فيها شغلك ------------------------------- -->
+     <tbody id="mytable">
+      </tbody>
+      </table>
+      </div>
+    <!-- ================================================================================================== -->
+    <script src="{%static 'table/table_js/jquery.min.js' %}"></script>
+    <script src="{%static 'table/table_js/popper.min.js' %}"></script>
+    <script src="{%static 'table/table_js/bootstrap.min.js' %}"></script>
+    <script src="{%static 'table/table_js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* color: #007bff */
+.navbar-brand{
+    margin-left: 1%;
+    color: #007bff;
+}
+.Logout:hover{
+    background-color: #0058b6;
+}
+.nav-link{
+    color:#007bff ; 
+}
+.sp{
+    color: black;
+   
+}
+.navbar-nav{
+    margin-left: 3%;
+}
+.navbar{
+    background-color: whitesmoke;
+    color: #007bff;
+}
+.home {
+    color: #007bff;
+}
+.table {
+    color: #007bff;
+}
+.qrcode {
+    color: #007bff;
+}
+.btn{
+    margin-right: 2%;
+    margin-left: 3%;
+
+    }
+.name{
+margin-left: 35%;
+}
+.wrapper{
+    margin-top:-100px;
+}
+
+.btns{
+    margin-top:-200px;
+}
+.start{
+    margin-right: 2%;
+    margin-left: 20%;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.start:hover {background-color: #3e8e41}
+
+.start:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.stop{
+    
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:#ff0000 ;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.stop:hover {background-color: #f70000}
+
+.stop:active {
+  background-color: #7300f7;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.stop_btn{
+    margin-top: -47.5px ;
+    margin-right: 20%;
+    margin-left: 2%;
+}
+.stop_btn{
+    margin-bottom: 25px ;
+   
+}
+#start{
+    width: 120px;
+   
+}
+#stop{
+       /* width: 10%; */
+      width: 120px;
+}
+#download{
+        margin-top: 2%;
+}
+

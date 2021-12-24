@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ================================================================================================== -->
+    <!------------------------ bootstrap ----------------------------- -->
+    <link rel="stylesheet" href="{%static 'login/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'login/css/min.css' %}">
+    <link rel="stylesheet" href="{%static 'login/css/style.css' %}">
+    
+    <title>Login</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <span class="navbar-brand"><h4>Student Attendance</h4></span> 
+   
+      
+   
+  
+    
+        
+    </div>
+  </nav>
+  <!-- ==================================================================================================== -->
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('images/photo.jpg' );"></div> 
+     <div class="contents order-2 order-md-1">
+  
+       <div class="container">
+         <div class="row align-items-center justify-content-center">
+           <div class="col-md-7">
+             <div class="div"> <h3>Login TO <strong>Page</strong></h3></div>
+             <form  method="POST" action=''>
+				 
+            			{% csrf_token%}
+               <div class="form-group first">
+                 <label for="username">Username</label>
+                 <input type="text" class="form-control" name="username" placeholder="username" required id="username">
+               </div>
+              
+               <div class="form-group last mb-3">
+                 <label for="ID">password</label>
+                 <input type="password" class="form-control" name="password" placeholder="password"required id="password">
+               </div>
+               <div class="form-group last mb-3">
+                 <label for="password">Subject</label>
+                 <input list="subject" class="form-control" name="subject_name" placeholder="Subject"required id="Subject">
+                 <datalist id="subject">
+                  <option value=" Object Oriented Programing">
+                    <option value=" Bussiness Adminstration">
+                    <option value=" Technical Writing">
+                    <option value=" Information System">
+                    <option value=" Progect Mangement">
+                    <option value=" Descret Structures">
+                    <option value=" Math">
+                 </datalist>
+               </div>
+			   <div class="mt-4">
+					<div class="d-flex ">
+						Don't have an account? <a href=" /accounts/signup" class="ml-2">Sign Up</a>
+					</div>
+				</div>	 
+               <input type="submit" value="Login" class="btn btn-block btn-primary">
+  
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>  
+   </div>
+    <!-- ================================================================================================== -->
+    <script src="{%static 'login/js/jquery.min.js' %}"></script>
+    <script src="{%static 'login/js/popper.min.js' %}"></script>
+    <script src="{%static 'login/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

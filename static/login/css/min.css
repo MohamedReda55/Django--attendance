@@ -1,0 +1,38 @@
+.navbar-brand{
+    margin-left: 1%;
+    color: #007bff;
+}
+.Logout:hover{
+    background-color: #0058b6;
+}
+.nav-link{
+    color:#007bff ; 
+}
+.sp{
+    color: black;
+   
+}
+.navbar-nav{
+    margin-left: 3%;
+}
+.navbar{
+    background-color: whitesmoke;
+    color: #007bff;
+}
+.h4,h5{
+    color: #007bff;
+}
+.btn{
+    margin-right: 2%;
+    margin-left: 2%;
+    }
+.name{
+margin-left: 35%;
+}
+.mt-4{
+    margin-top: 0%;
+    margin-left: 45%;
+}
+.d-flex{
+        margin-top: -5%;
+}

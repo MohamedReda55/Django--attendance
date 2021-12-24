@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ================================================================================================== -->
+    <!------------------------ bootstrap ----------------------------- -->
+    <link rel="stylesheet" href="{%static 'home/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'home/css/min.css' %}">
+    <!-- ------------------------- chart ---------------- -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{%static 'home/chart/chart.css' %}">
+  <!-- ------------------------------------------------------------------------ -->
+    <title> Home Page</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <span class="navbar-brand"><h4>Student Attendance</h4></span> 
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link"  href="{%url 'accounts:home' %}" target="_blank"><h5 class="home">Home</h5></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="{%url 'accounts:tables' %}" target="_blank"><h5 class="table">Live Table</h5></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "  href="{%url 'accounts:qrcode_page' %}" target="_blank"><h5 class="qrcode">QR_Code</h5></a>
+        </li>
+      </ul>
+      <div class="name" style="float: right;">
+        <span class="sp"><h5 class="username" >{{ request.user.username }}</h5></span>
+      </div>
+      <a href="{%url 'accounts:logout'%}">
+      <input class="btn btn-primary"  type="submit" value="Logout" >
+      </a>
+    </div>
+  </nav>
+<center>
+  <h4 id="sub">{{subject_name}} </h4></div>
+  <h4 id="time"></h4></div>
+ </center>
+    <!-- ================================================================================================== -->
+    <center>
+    <div class="wrapper">
+      <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="chart-wrapper" id="chartReport">
+          <canvas id="myChart" width="300" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+  <div class="btns"
+ 
+
+
+
+
+
+  <div class="start_btn" id="start_div">
+    
+  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>
+    {% comment %} <a  href="{%url 'accounts:start_server'%}"> {% endcomment %}
+    {% comment %} <button class="start" id="start" onClick="start();" >Start</button> {% endcomment %}
+  {% comment %} </a> {% endcomment %}
+  
+</div>
+
+<div class="download_btn">
+   
+   <a class="download" id="download" href="{%url 'accounts:csv_home'%}">
+     <button type="button" id="download" class="btn btn-primary">
+    <svg  width="16" height="16" class="bi bi-download" id="download" >
+      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path> 
+  </svg>
+Download
+</button>
+    </a>
+  </div>
+</div>
+  
+  </center>
+  
+    <!-- ================================================================================================== -->
+    <script src="{%static 'home/js/jquery.min.js' %}"></script>
+    <script src="{%static 'home/js/popper.min.js' %}"></script>
+    <script src="{%static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{%static 'home/js/chart.min.js' %}"></script>
+    <script src="{%static 'home/js/script.js' %}"></script>
+    <script src="{%static 'home/js/chartjs-plugin-datalabels.js' %}"></script> 
+    <script src="{%static 'home/chart/chart.js' %}"></script>
+</body>
+</html>
