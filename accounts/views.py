@@ -182,8 +182,8 @@ def csv_home(request):
     subject_name = obj.subject_name
     date = datetime.now().strftime("%d/%m/%Y")
     filename=f"{subject_name}_{date}"
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = f'attachment; filenmae="{filename}.csv'
+    response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+    response['Content-Disposition'] = f'attachment; filenmae="{filename}".csv'
     writer = csv.writer(response)
     writer.writerow(['id', 'name'])
     users = list(Student.objects.values_list('name_id', 'name'))
