@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>
+            Thanks!
+        </title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+           .container{
+             font-family: "Lucida Console", "Courier New", monospace;
+            width: 70%;
+            height: 400px;
+            padding-top: 10%;
+            border-radius: 20px;
+           }
+
+        </style>
+    </head>
+    <body >
+        <center>
+            <div class = "container">
+             <div class = "Image">
+               <img src="{% static 'submit/images/right.png' %}" width="260px" height="324px">
+             </div>
+             <div class = "thank_you">
+               <h1>
+                    THANK YOU!
+                </h1>
+             </div>
+             <div class = "">
+                <p>
+                    Your submit have been sent 
+                </p>
+            </div>
+        </center>
+        
+    </body>
+</html>

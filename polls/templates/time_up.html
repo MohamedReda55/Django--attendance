@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time is UP</title>
+    <style>
+                .container{
+            font-family: "Lucida Console", "Courier New", monospace;
+            width: 70%;
+            height: 400px;
+            padding-top: 10%;
+            border-radius: 20px;
+            }
+    </style>
+</head>
+<body>
+    <center>
+        <div class = "container">
+         <div class = "Image">
+           <img src="{% static 'submit/images/sad_face.png' %}" width="200px" height="200px">
+         </div>
+         <div class = "thank_you">
+           <h1>
+                TIME IS UP!
+            </h1>
+         </div>
+        </div>
+    </center>
+</body>
+</html>
