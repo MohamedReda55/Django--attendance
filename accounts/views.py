@@ -1,6 +1,6 @@
 import random
 from django.contrib.auth.forms import UserCreationForm
-from django.http import response, HttpResponse, JsonResponse
+from django.http import request, response, HttpResponse, JsonResponse
 from django.shortcuts import redirect, render,HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import Profile, qrcode_model,login_info, server_state
@@ -182,8 +182,8 @@ def csv_home(request):
     subject_name = obj.subject_name
     date = datetime.now().strftime("%d/%m/%Y")
     filename=f"{subject_name}_{date}"
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = f'attachment; filenmae="{filename}.csv'
+    response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+    response['Content-Disposition'] = f'attachment; filenmae="{filename}".csv'
     writer = csv.writer(response)
     writer.writerow(['id', 'name'])
     users = list(Student.objects.values_list('name_id', 'name'))
@@ -219,3 +219,8 @@ def chart_json(request):
     obj = login_info.objects.get(subject_id="subject")
     subject_name = obj.subject_name
     return JsonResponse({"attendance_number": attendance_number, "absence_number": absence_number,"subject_name":subject_name})
+login_required(login_url='/accounts/signin')
+def bar_page(request):
+    
+        return render(request,"Bar_page/bar_page.html")
+    

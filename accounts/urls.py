@@ -16,6 +16,7 @@ urlpatterns=[
     path("csv_home", views.csv_home, name="csv_home"),
     path("server/start", views.start_server, name="start_server"),
     path("server/stop", views.stop_server, name="stop_server"),
+    path("bar", views.bar_page, name="bar"),
     
              
 ]

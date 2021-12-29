@@ -34,8 +34,8 @@ class qrcode_model(models.Model):
         return str(self.qrcode_url)
 
     def save(self,*args,**kwargs):
-       qr_code_img=qrcode.make(self.qrcode_url)
-       canvas=Image.new("RGB",(500,500),"white")
+       qr_code_img=qrcode.make(self.qrcode_url,)
+       canvas=Image.new("RGB",(400,400),"white")
        draw=ImageDraw.Draw(canvas)
        canvas.paste(qr_code_img)
        fname=f"qr_code-{self.qrcode_id}.png"

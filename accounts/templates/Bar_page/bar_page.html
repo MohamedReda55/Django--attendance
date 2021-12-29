@@ -9,12 +9,13 @@
     <!------------------------ bootstrap ----------------------------- -->
     <link rel="stylesheet" href="{%static 'home/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{%static 'home/css/min.css' %}">
+      <link rel="stylesheet" href="{%static 'Bar_page/css/bar.css' %}">
     <!-- ------------------------- chart ---------------- -->
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous"> -->
   <link rel="stylesheet" href="{%static 'home/chart/chart.css' %}">
   <!-- ------------------------------------------------------------------------ -->
-    <title> Home Page</title>
+    <title>Bar</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light ">
@@ -55,49 +56,26 @@
     <div class="wrapper">
       <div class="container d-flex flex-column justify-content-center align-items-center">
         <div class="chart-wrapper" id="chartReport">
-          <canvas id="myChart" width="300" height="300"></canvas>
+          <canvas id="mybar" width="800" height="800"></canvas>
         </div>
       </div>
     </div>
-  <div class="btns">
+  
  
 
 
 
 
 
-  <div class="start_btn" id="start_div">
-    
-  <button type="button" class="btn btn-success" id="start" onclick="start();"> Start</button>
-    {% comment %} <a  href="{%url 'accounts:start_server'%}"> {% endcomment %}
-    {% comment %} <button class="start" id="start" onClick="start();" >Start</button> {% endcomment %}
-  {% comment %} </a> {% endcomment %}
   
-</div>
-
-<div class="download_btn">
-   
-   <a class="download" id="download" href="{%url 'accounts:csv_home'%}">
-     <button type="button" id="download" class="btn btn-primary">
-    <svg  width="16" height="16" class="bi bi-download" id="download" >
-      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
-      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path> 
-  </svg>
-Download
-</button>
-    </a>
-  </div>
-</div>
-  
-  </center>
   
     <!-- ================================================================================================== -->
     <script src="{%static 'home/js/jquery.min.js' %}"></script>
     <script src="{%static 'home/js/popper.min.js' %}"></script>
     <script src="{%static 'home/js/bootstrap.min.js' %}"></script>
     <script src="{%static 'home/js/chart.min.js' %}"></script>
-    <script src="{%static 'home/js/script.js' %}"></script>
+  
     <script src="{%static 'home/js/chartjs-plugin-datalabels.js' %}"></script> 
-    <script src="{%static 'home/chart/chart2.js' %}"></script>
+    <script src="{%static 'bar_page/js/bar.js' %}"></script>
 </body>
 </html>
