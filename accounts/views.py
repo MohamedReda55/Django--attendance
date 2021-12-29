@@ -223,4 +223,8 @@ login_required(login_url='/accounts/signin')
 def bar_page(request):
     
         return render(request,"Bar_page/bar_page.html")
+<<<<<<< HEAD
     
+=======
+    
+>>>>>>> 7237b0273c93167139959cb9556fbff16031532d
