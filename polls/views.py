@@ -22,7 +22,7 @@ class Main_view(View):
                     subject_name = obj.subject_name
                     return render(request,'submit.html',{"subject_name":subject_name})
                 else:
-                    return render(request,"state.html")
+                    return render(request,"time_up.html")
             else:
                 raise response.Http404("wrong page")
       
@@ -48,7 +48,7 @@ class Main_view(View):
                             hash=obj.qrcode_hash
                             return redirect(f"/student/submit/{hash}")
                     else:
-                      return render(request,"state.html")
+                      return render(request, "time_up.html")
                         # db = sqlite3.connect("students.db")
                         # cr = db.cursor()
                         # cr.execute(
@@ -72,5 +72,5 @@ class Main_view(View):
                 username=request.session["username"]
             except:
                 username=''
-            return render(request, "thank.html",{"username":username})
+            return render(request, "thanks_page.html",{"username":username})
     

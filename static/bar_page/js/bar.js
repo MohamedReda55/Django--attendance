@@ -2,14 +2,14 @@ $(function () {
     var ctx = document.getElementById("mybar").getContext("2d");
     // examine example_data.json for expected response data
     var json_url = "/accounts/post/ajax/info";
-    const labels =["10/10","10/17","10/24","11/1","11/8","11/15","11/22","11/29"]
+    const labels =["10/10","10/17","10/24","11/1","11/8","11/15","11/22","11/29","12/5","12/12","12/19","12/26"]
          myChart = new Chart(ctx, {
             type: 'bar',
             data : {
         labels: labels,
         datasets: [{
     //label: 'My First Dataset',
-    data: [200, 250, 100, 300, 70, 20, 40,50],
+    data: [200, 250, 100, 400, 70, 20, 40,50,120,150,400,200],
     backgroundColor: [
       'rgba(255, 99, 132, 0.2)',
       'rgba(255, 159, 64, 0.2)',
@@ -31,7 +31,13 @@ $(function () {
     borderWidth: 1
   }]
 }, options: {
-    responsive: true,
+    plugins: {
+    legend: {
+      display: false
+    }
+  },
+
+    maintainAspectRatio:false,
     scales: {
       y: {
         beginAtZero: true

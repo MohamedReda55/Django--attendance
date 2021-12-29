@@ -1,4 +1,5 @@
 $(document).ready(function(){
+// document.addEventListener("DOMContentLoaded",function(){
   $.ajaxSetup({ cache: false });
   setInterval(function() {
     $.getJSON('/accounts/post/ajax/data',function(rowz){
@@ -8,7 +9,7 @@ $(document).ready(function(){
       //var date=document.getElementById('date')
       //var time=document.getElementById('time')
       
-      subject_name.innerHTML = rowz["subject_name"]      
+      // subject_name.innerHTML = rowz["subject_name"]      
            
       //date.innerHTML = rowz["date"]
       for (var i=0;i<rowz['students'].length;i++){
@@ -24,7 +25,7 @@ $(document).ready(function(){
       
     });
     
-  }, 3000);
+  }, 1000);
 
 });
 

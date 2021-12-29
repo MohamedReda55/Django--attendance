@@ -26,6 +26,12 @@
   font-size: 90px;
   
 }
+{% comment %} .confirm_code{
+  color:fff888;
+} {% endcomment %}
+.confirm_code {
+    display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -65,9 +71,13 @@
 
 
 <center>
-<h2>{{url}}</h2>
+{% comment %} <h2>{{url}} </h2> {% endcomment %}
+{% comment %} <div class="confirm_code">
+<h2 >Confirmation code</h2> {% endcomment %}
+<h1><huge>{{code}} </h1>
 <img class="qrcode_img" src={{img}}>
-<h1 class="code"><huge>{{code}}<h2>
+
+{% comment %} <h1 class="code"><h2> {% endcomment %}
 {% comment %} {% qr_from_data "{{hash}}" size="L" %} {% endcomment %}
 </center>
 

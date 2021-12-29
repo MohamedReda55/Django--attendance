@@ -2,6 +2,6 @@
 <form  method='POST'>
  {% csrf_token %}
  {{form1}}
- {{form2}}
+ {% comment %} {{form2}} {% endcomment %}
 <input class="btn btn-primary" type="submit" name="" value="signup">
 </form>

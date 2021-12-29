@@ -21,31 +21,34 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 #@csrf_exempt
 def singnup(request):
-    if request.user.is_authenticated:
-        return redirect('/accounts/tables/')
-    else:
-        if request.method=='POST':
-            
-            user_form=SignupForm(request.POST)
-            # profile_form=ProfileForm(request.POST)
-            if user_form.is_valid() :
-                user_form.save()
-                username = user_form.cleaned_data['username']
-           
-                # myform=profile_form.save(commit=False)
-                # myform.fo
-                # subject1=myform.cleaned_data["subject_1_name"]
-                # user = Profile.objects.get(username=username)
-                # password = user_form.cleaned_data['password1']
-                messages.success(request,f"Account was created for {username}")
-                # user=authenticate(username=username,password=password)
-                # login(request,user)
-                return redirect('/accounts/signin/')
-            
-        # else:
-        form1=SignupForm()
-        # form2=ProfileForm()
-        return render(request,'registration/signup.html',{'form1':form1,'form2':''})
+        if request.user.is_superuser:        
+            if request.user.is_authenticated:
+                return redirect('/accounts/tables/')
+            else:
+                if request.method=='POST':
+                    
+                    user_form=SignupForm(request.POST)
+                    # profile_form=ProfileForm(request.POST)
+                    if user_form.is_valid() :
+                        user_form.save()
+                        username = user_form.cleaned_data['username']
+                
+                        # myform=profile_form.save(commit=False)
+                        # myform.fo
+                        # subject1=myform.cleaned_data["subject_1_name"]
+                        # user = Profile.objects.get(username=username)
+                        # password = user_form.cleaned_data['password1']
+                        messages.success(request,f"Account was created for {username}")
+                        # user=authenticate(username=username,password=password)
+                        # login(request,user)
+                        return redirect('/accounts/signin/')
+                    
+                # else:
+                form1=SignupForm()
+                # form2=ProfileForm()
+                return render(request,'registration/signup.html',{'form1':form1,'form2':''})
+        else:
+            return render("/accounts/signin/")
 def login_page(request):
     if request.user.is_authenticated:
         return redirect('/accounts/tables/')
@@ -73,21 +76,22 @@ def signout(request):
 
 @login_required(login_url='/accounts/signin')
 def tables(request):
+    obj = login_info.objects.get(subject_id="subject")
+    subject_name = obj.subject_name
+    return render(request, 'table/table.html', {"subject_name": subject_name})
+# def test(request):
+#     pass
+#     # Session.objects.all().delete()
+#     session_key = 'submit'
+#     session = Session.objects.get(session_key=session_key)
+#     Session.objects.filter(session_key=session).delete()
+#     # Session.objects.all().delete()
     
-    return render(request, 'table/table.html')
-def test(request):
-    pass
-    # Session.objects.all().delete()
-    session_key = 'submit'
-    session = Session.objects.get(session_key=session_key)
-    Session.objects.filter(session_key=session).delete()
-    # Session.objects.all().delete()
-    
-    session_key2 = 'username'
-    session2 = Session.objects.get(session_key=session_key2)
-    Session.objects.filter(session_key=session2).delete()
-    # Session.objects.all().delete()
-    return render(request,'profile/home.html')
+#     session_key2 = 'username'
+#     session2 = Session.objects.get(session_key=session_key2)
+#     Session.objects.filter(session_key=session2).delete()
+#     # Session.objects.all().delete()
+#     return render(request,'profile/home.html')
 
 
 @login_required(login_url='/accounts/signin')
@@ -219,12 +223,17 @@ def chart_json(request):
     obj = login_info.objects.get(subject_id="subject")
     subject_name = obj.subject_name
     return JsonResponse({"attendance_number": attendance_number, "absence_number": absence_number,"subject_name":subject_name})
-login_required(login_url='/accounts/signin')
+@login_required(login_url='/accounts/signin')
 def bar_page(request):
-    
-        return render(request,"Bar_page/bar_page.html")
-<<<<<<< HEAD
-    
-=======
-    
->>>>>>> 7237b0273c93167139959cb9556fbff16031532d
+    obj = login_info.objects.get(subject_id="subject")
+    subject_name = obj.subject_name
+    return render(request,"Bar_page/bar_page.html",{"subject_name":subject_name})
+
+@login_required(login_url='/accounts/signin')
+def server_check(request):
+    obj = server_state.objects.get(server_id="server")
+    server_check = obj.server_state
+    return JsonResponse({"server_state": server_check})
+@login_required(login_url='/accounts/signin')
+def bar_data(request):
+    pass
