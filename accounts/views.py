@@ -219,3 +219,8 @@ def chart_json(request):
     obj = login_info.objects.get(subject_id="subject")
     subject_name = obj.subject_name
     return JsonResponse({"attendance_number": attendance_number, "absence_number": absence_number,"subject_name":subject_name})
+login_required(login_url='/accounts/signin')
+def bar_page(request):
+    
+        return render(request,"Bar_page/bar_page.html")
+    
