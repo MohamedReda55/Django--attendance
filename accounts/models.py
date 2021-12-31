@@ -65,8 +65,9 @@ class server_state(models.Model):
     server_state = models.BooleanField(default=False)
        
 class restart_state(models.Model):
-    restart_id=models.CharField(max_length=10)
+    restart_id=models.CharField(max_length=20)
     restart_state=models.BooleanField(default=False)
+
 
 
 
@@ -74,8 +75,7 @@ class records(models.Model):
    date=models.CharField(max_length=10)
    attendance = models.CharField(max_length=10)
    absence = models.CharField(max_length=10)
-   weather_state =models.CharField(max_length=10)
-   wheather_c = models.CharField(max_length=10)
+  
    
 @receiver(post_save, sender=User)
 def create_user_profile(sender,instance,created,**kwargs):

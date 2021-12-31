@@ -1,11 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here. 
-from django.db.models import BooleanField, ExpressionWrapper, Q
-from django.db.models.functions import Now
-from django.utils import timezone
-import datetime
-import time
+
 # class ExpiredManager(models.Manager):
 
 #     def get_queryset(self):

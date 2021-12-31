@@ -2,22 +2,25 @@
 {%load static %}
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel "shortcut icon" type="{%static "Bar_page/img/bar_page.png" %}"
+    {% comment %} <link rel="icon" type="image/png" href="images/icons/icon.png"/> {% endcomment %}
     <!-- ================================================================================================== -->
     <!------------------------ bootstrap ----------------------------- -->
     <link rel="stylesheet" href="{%static 'home/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{%static 'home/css/min.css' %}">
       <link rel="stylesheet" href="{%static 'Bar_page/css/bar.css' %}">
-      <link href="{%static 'Bar_page/css/bootstrap4-toggle.min.css' %} rel="stylesheet">
+      {% comment %} <link rel="stylesheet" href=""> {% endcomment %}
+      <link rel="stylesheet" href="{%static 'Bar_page/css/bootstrap4-toggle.min.css' %}" >
 
     <!-- ------------------------- chart ---------------- -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous"> -->
+       {% comment %} <link rel="stylesheet" href="{%static 'Bar_page/css/bootstrap.min.css' %}" >  {% endcomment %}
   <link rel="stylesheet" href="{%static 'home/chart/chart.css' %}">
   <!-- ------------------------------------------------------------------------ -->
-    <title>Bar</title>
+    <title>Attendance graph</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light ">
@@ -38,7 +41,7 @@
           <a class="nav-link "  href="{%url 'accounts:qrcode_page' %}" target="_blank"><h5 class="qrcode">QR_Code</h5></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link "  href="{%url 'accounts:bar' %}" target="_blank"><h5 class="qrcode">Bar</h5></a>
+          <a class="nav-link "  href="{%url 'accounts:bar' %}" target="_blank"><h5 class="qrcode">Attendance graph</h5></a>
         </li>
        </ul>
       <div class="name" style="float: right;">
@@ -73,7 +76,7 @@
     <script src="{%static 'home/js/popper.min.js' %}"></script>
     <script src="{%static 'home/js/bootstrap.min.js' %}"></script>
     <script src="{%static 'home/js/chart.min.js' %}"></script>
-  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  {% comment %} <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script> {% endcomment %}
     <script src="{%static 'home/js/chartjs-plugin-datalabels.js' %}"></script> 
     <script src="{%static 'bar_page/js/bar.js' %}"></script>
 </body>

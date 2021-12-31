@@ -55,7 +55,7 @@ def singnup(request):
             return redirect("/accounts/signin/")
 def login_page(request):
     if request.user.is_authenticated:
-        return redirect('/accounts/tables/')
+        return redirect('/accounts/home')
     else:
             if request.method=='POST':    
                 username=request.POST['username']
@@ -121,13 +121,13 @@ def login_page(request):
                     cr = db.cursor()
                     cur=db2.cursor()
                     cur.execute(
-                        f'CREATE TABLE IF NOT EXISTS {table_name} (date text,attendance text,absence text,weather_state text,wheather_c text )')
+                        f'CREATE TABLE IF NOT EXISTS {subject_tmp} (date text,attendance text,absence text,weather_state text,wheather_c text )')
                     cr.execute(f'CREATE TABLE IF NOT EXISTS {table_name} (ID text , name text  ,num INT AUTO_INCREMENT PRIMARY KEY)')
                     db.commit()
                     db2.commit()
                     
           
-                    return redirect('/accounts/tables/')
+                    return redirect('/accounts/home')
                 return redirect('/accounts/signup/')
             return render(request, 'registration/login.html')
 def signout(request):
@@ -144,7 +144,7 @@ def tables(request):
         b.save()
     obj = login_inf.objects.get(subject_id="subject")
     subject_name = obj.subject_name
-    return render(request, 'table/table.html', {"subject_name": subject_name})
+    return render(request, 'table/table.html', {"subject_name": subject_name.replace("_"," ")})
 @login_required(login_url='/accounts/signin')
 def home(request):
     try:
@@ -156,7 +156,7 @@ def home(request):
     obj = login_inf.objects.get(subject_id="subject")
     subject_name = obj.subject_name
   
-    return render(request,"Home/home.html",{"subject_name":subject_name})
+    return render(request, "Home/home.html", {"subject_name": subject_name.replace("_", " ")})
     #attendance_number=
 def weather_data():
 
@@ -349,7 +349,7 @@ def chart_json(request):
 def bar_page(request):
     obj = login_inf.objects.get(subject_id="subject")
     subject_name = obj.subject_name
-    return render(request,"Bar_page/bar_page.html",{"subject_name":subject_name})
+    return render(request, "Bar_page/bar_page.html", {"subject_name": subject_name.replace("_", " ")})
 
 @login_required(login_url='/accounts/signin')
 def server_check(request):
@@ -374,22 +374,42 @@ def bar_data(request):
    
     cur=db2.cursor()
     cur.execute(f"SELECT  date,attendance FROM {table_name} ")
+    # db = mysql.connector.connect(
+    #     host="localhost",
+    #     user="root",
+    #     password="root",
+    #     database='students'
+    # )
+    
+    # cr = db.cursor()
+    # cr.execute()
+    # result = cr.fetchall()
+    # attendance_number = result[0][0]
+    # cr.execute(f"SELECT max(num) FROM {table_name}")
     data = cur.fetchall()
     for i in range(len(data)):
             data[i]=list(data[i])
     
     attendance=list()
+    date_li=list()
     for i in range(len(data)):
        attendance.append(data[i][1])
+    for i in range(len(data)):
+       date_li.append(data[i][0])
     
-    return JsonResponse({"data":attendance})
+    return JsonResponse({"data":attendance,"label":date_li})
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
     
 @login_required(login_url='/accounts/signin')
 def restart(request):
     # Student.objects.all().delete()
-    obj=restart_state.objects.get(restart_id="is_restarted")
-    obj.restart_state=True
-    obj.save()
-    return JsonResponse({"restart_state":True})
+    try:
+        restart_value = restart_state.objects.get(restart_id="res")
+    except:
+            b = restart_state(restart_id="res")
+            b.save()
+            restart_value = restart_state.objects.get(restart_id="res")
+    restart_value.restart_state=True
+    restart_value.save()
+    return JsonResponse({"restart_state":restart_value.restart_state})

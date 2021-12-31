@@ -30,20 +30,23 @@ class Main_view(View):
                     if obj.server_state ==True:
                         if "submit" in request.session:
                             try:
-                                restart_value = restart_state.objects.get(restart_id="is_restarted")
+                                restart_value = restart_state.objects.get(
+                                    restart_id="res")
                             except:
-                                b=restart_state(restart_id="is_restarted")
+                                b = restart_state(restart_id="res")
                                 b.save()
-                            restart_value = restart_state.objects.get(restart_id="is_restarted")
+                            restart_value = restart_state.objects.get(
+                                restart_id="res")
                             if restart_value.restart_state:
                                 del request.session['submit']
                                 del request.session['username']
                                 restart_value.restart_state=False
+                                restart_value.save()
                                 return redirect(f"/student/submit/{get_data.qrcode_hash}")
                             return HttpResponse(f"you already submitted as {request.session['username']}")
                         obj = login_inf.objects.get(subject_id="subject")
                         subject_name = obj.subject_name
-                        return render(request,'submit.html',{"subject_name":subject_name})
+                        return render(request, 'submit.html', {"subject_name": subject_name.replace("_", " ")})
                     else:
                         return render(request,"time_up.html")
                 else:
@@ -89,7 +92,7 @@ class Main_view(View):
                                 print(table_name)
                                 sql = "INSERT INTO "+table_name+"(ID , name) VALUES(%s,%s)"
                                 cr = db.cursor()
-                                cr.execute(sql,(ID,Name))
+                                cr.execute(sql,(str(ID),Name))
                                 db.commit()
                                 request.session["submit"] = True
                                 request.session["username"]=Name
