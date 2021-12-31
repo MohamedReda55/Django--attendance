@@ -108,7 +108,8 @@
 						Don't have an account? <a href=" /accounts/signup" class="ml-2">Sign Up</a>
 					</div> 
            {%for message in messages%}
-            <p id="messages"> {{message}}</p>
+		    {% if forloop.last %}
+			<div id="messages"> {{message}}</div>
             {%endfor%} 
 				  </div>
 					</form>

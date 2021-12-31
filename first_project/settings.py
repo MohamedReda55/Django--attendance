@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware', 
     'django_session_timeout.middleware.SessionTimeoutMiddleware'
 ]
-SESSION_EXPIRE_SECONDS = 3600
+SESSION_EXPIRE_SECONDS = 7200
 ROOT_URLCONF = 'first_project.urls'
 
 TEMPLATES = [
@@ -81,16 +81,19 @@ WSGI_APPLICATION = 'first_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
+    'default': {
+        "NAME":"student_system",
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'root',
     #    'OPTIONS':{
     #        'read_default_file':BASE_DIR/'mysql.cnf'
-    #    }
+       },
     # },
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    # }
 }
 
 # Password validation

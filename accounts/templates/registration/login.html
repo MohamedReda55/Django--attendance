@@ -25,6 +25,7 @@
     </div>
   </nav>
   <!-- ==================================================================================================== -->
+ 
   <div class="d-lg-flex half">
     <div class="bg order-1 order-md-2" style="background-image: url('images/photo.jpg' );"></div> 
      <div class="contents order-2 order-md-1">
@@ -49,13 +50,13 @@
                  <label for="password">Subject</label>
                  <input list="subject" class="form-control" name="subject_name" placeholder="Subject"required id="Subject">
                  <datalist id="subject">
-                  <option value=" Object Oriented Programing">
-                    <option value=" Bussiness Adminstration">
-                    <option value=" Technical Writing">
-                    <option value=" Information System">
-                    <option value=" Progect Mangement">
-                    <option value=" Descret Structures">
-                    <option value=" Math">
+                  <option value="Object Oriented Programing">
+                    <option value="Bussiness Adminstration">
+                    <option value="Technical Writing">
+                    <option value="Information System">
+                    <option value="Progect Mangement">
+                    <option value="Descret Structures">
+                    <option value="Math">
                  </datalist>
                </div>
 			   {% comment %} <div class="mt-4">
@@ -75,5 +76,21 @@
     <script src="{%static 'login/js/jquery.min.js' %}"></script>
     <script src="{%static 'login/js/popper.min.js' %}"></script>
     <script src="{%static 'login/js/bootstrap.min.js' %}"></script>
-</body>
+<script>
+  {% comment %} var data=messages
+  console
+  for (const [i, value] of data.entries()) {
+    if (i === arr.length - 1) {
+        alert(value);
+    }
+} {% endcomment %}
+   {%for message in messages%}
+		    {% if forloop.last %}
+      
+        alert("{{message}}"); 
+    
+      {%endif%}
+  {%endfor%}  
+</script>
+  </body>
 </html>

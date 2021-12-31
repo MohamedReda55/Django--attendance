@@ -6,6 +6,10 @@ import qrcode
 from io import BytesIO
 from PIL import Image,ImageDraw
 from django.core.files import File
+from django.db.models import BooleanField, ExpressionWrapper, Q
+from django.db.models.functions import Now
+from django.utils import timezone
+import datetime
 
 class Profile(models.Model):
     user=models.OneToOneField(User ,on_delete=models.CASCADE)
@@ -47,14 +51,32 @@ class qrcode_model(models.Model):
        
 class login_info(models.Model):
     subject_id = models.CharField(max_length=10)
-    subject_name=models.CharField(max_length=70)       
+    subject_name=models.CharField(max_length=70) 
+    # subject_info = models.CharField(max_length=70)
+       
+class login_inf(models.Model):
+    subject_id = models.CharField(max_length=10)
+    subject_name=models.CharField(max_length=70) 
+    subject_info = models.CharField(max_length=70)
        
 
 class server_state(models.Model):
     server_id = models.CharField(max_length=10)
     server_state = models.BooleanField(default=False)
        
-       
+class restart_state(models.Model):
+    restart_id=models.CharField(max_length=10)
+    restart_state=models.BooleanField(default=False)
+
+
+
+class records(models.Model):
+   date=models.CharField(max_length=10)
+   attendance = models.CharField(max_length=10)
+   absence = models.CharField(max_length=10)
+   weather_state =models.CharField(max_length=10)
+   wheather_c = models.CharField(max_length=10)
+   
 @receiver(post_save, sender=User)
 def create_user_profile(sender,instance,created,**kwargs):
     if created:

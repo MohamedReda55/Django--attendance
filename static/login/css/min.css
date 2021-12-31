@@ -36,3 +36,12 @@ margin-left: 35%;
 .d-flex{
         margin-top: -5%;
 }
+.alert{
+    width: 100%;
+    margin-top: 10px;
+    height: 70px;
+}
+span{
+    font-size:large;
+    margin-left: 40%;
+}

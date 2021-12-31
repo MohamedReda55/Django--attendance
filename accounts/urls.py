@@ -17,8 +17,10 @@ urlpatterns=[
     path("server/start", views.start_server, name="start_server"),
     path("server/stop", views.stop_server, name="stop_server"),
     path("bar", views.bar_page, name="bar"),
+    path("post/bar/ajax", views.bar_data, name="bar_data"),
     path("bar/data", views.bar_data, name="bar_data"),
     path("post/ajax/server/state", views.server_check, name="server_state"),
+    path("server/restart", views.restart, name="restart"),
     
     
              
